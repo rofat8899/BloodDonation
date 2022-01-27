@@ -97,9 +97,6 @@
           <Color blue="99" green="0" red="99" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="11"/>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\Documents\NetBeansProjects\testing\image\Register-banner.png"/>
-        </Property>
         <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="verticalAlignment" type="int" value="1"/>
       </Properties>
@@ -238,12 +235,16 @@
         <Component class="javax.swing.JComboBox" name="cbBloodType">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="5">
+              <StringArray count="9">
                 <StringItem index="0" value="Blood Type"/>
-                <StringItem index="1" value="A"/>
-                <StringItem index="2" value="B"/>
-                <StringItem index="3" value="AB"/>
-                <StringItem index="4" value="O"/>
+                <StringItem index="1" value="A-"/>
+                <StringItem index="2" value="A+"/>
+                <StringItem index="3" value="B-"/>
+                <StringItem index="4" value="B+"/>
+                <StringItem index="5" value="AB-"/>
+                <StringItem index="6" value="AB+"/>
+                <StringItem index="7" value="O-"/>
+                <StringItem index="8" value="O+"/>
               </StringArray>
             </Property>
           </Properties>

@@ -54,12 +54,14 @@ usr = api.getUser("rofat@gmail.com");
         btnNext = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(545, 710));
         setResizable(false);
-        setSize(new java.awt.Dimension(600, 700));
+        setSize(new java.awt.Dimension(545, 700));
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setPreferredSize(new java.awt.Dimension(545, 710));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Documents\\NetBeansProjects\\testing\\image\\Rectangle 56.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Documents\\NetBeansProjects\\BloodDonation\\image\\Rectangle 56.png")); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 0, 0));
@@ -98,24 +100,22 @@ usr = api.getUser("rofat@gmail.com");
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(395, 395, 395)
-                        .addComponent(jLabel3))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(178, 178, 178)
                         .addComponent(jLabel2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(chbRead))))
+                            .addComponent(chbRead)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(411, 411, 411)
+                        .addComponent(jLabel3)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabel1)
-                    .addContainerGap(411, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,7 +125,9 @@ usr = api.getUser("rofat@gmail.com");
                         .addGap(428, 428, 428)
                         .addComponent(jLabel3))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(259, 259, 259)
+                        .addContainerGap()
+                        .addComponent(jLabel1)
+                        .addGap(16, 16, 16)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -134,11 +136,6 @@ usr = api.getUser("rofat@gmail.com");
                 .addGap(18, 18, 18)
                 .addComponent(btnNext)
                 .addContainerGap(59, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabel1)
-                    .addContainerGap(457, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -157,27 +154,27 @@ usr = api.getUser("rofat@gmail.com");
 
     private void btnNextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNextMouseClicked
         // TODO add your handling code here:
-      if(isValid)
+        if(isValid)
         {
-          DonateBloodDetail t;
-          try {
-                 t = new DonateBloodDetail(usr);
-                 t.setVisible(true);
-                 dispose();
-          } catch (IOException ex) {
-              Logger.getLogger(DonateBlood.class.getName()).log(Level.SEVERE, null, ex);
-          }
-         
+            DonateBloodDetail t;
+            try {
+                t = new DonateBloodDetail(usr);
+                t.setVisible(true);
+                dispose();
+            } catch (IOException ex) {
+                Logger.getLogger(DonateBlood.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
         }
     }//GEN-LAST:event_btnNextMouseClicked
 
     private void chbReadItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chbReadItemStateChanged
         // TODO add your handling code here:
-      if(evt.getStateChange()== 0){
-        isValid = false;
+        if(evt.getStateChange()== 0){
+            isValid = false;
         }
-       else{
-        isValid = true;
+        else{
+            isValid = true;
         }
     }//GEN-LAST:event_chbReadItemStateChanged
 
