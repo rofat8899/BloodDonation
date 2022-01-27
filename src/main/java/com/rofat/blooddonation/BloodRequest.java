@@ -4,9 +4,16 @@
  */
 package com.rofat.blooddonation;
 
+import com.rofat.blooddonation.Class.Api;
+import dto.User;
 import java.awt.Color;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.border.Border;
@@ -20,12 +27,21 @@ public class BloodRequest extends javax.swing.JFrame {
     /**
      * Creates new form BloodRequest
      */
+ Api api = new Api();
+    User usr = new User();
 Border border = BorderFactory.createLineBorder(Color.RED, 2);
 Border noborder = BorderFactory.createLineBorder(Color.RED, 0);
-    public BloodRequest() {
+String bloodType;
+    public BloodRequest() throws IOException {
         initComponents();
+usr = api.getUser("rofat@gmail.com");
+    }
+ public BloodRequest(User user) {
+        initComponents();
+usr=user;
     }
     private void setBorder(JLabel jlb){
+    String bloodTypes[] = {"AB-","AB+","A+","A-","B+","B-","O+","O-"};
      List<JLabel> lb = new ArrayList<>();
      lb.add(btnABminus);
      lb.add(btnABplus);
@@ -35,16 +51,20 @@ Border noborder = BorderFactory.createLineBorder(Color.RED, 0);
      lb.add(btnBminus);
      lb.add(btnOplus);
      lb.add(btnOminus);
-     for(JLabel each:lb)
+     for(String eachType:bloodTypes){
+         for(JLabel eachlb:lb)
     {
-      if(each==jlb)
+      if(eachlb==jlb)
         {
           jlb.setBorder(border);
+          bloodType=eachType;
         }
       else{
-    each.setBorder(noborder);
+    eachlb.setBorder(noborder);
     }
     }
+    }
+    
      
 }
     /**
@@ -68,8 +88,8 @@ Border noborder = BorderFactory.createLineBorder(Color.RED, 0);
         btnABminus = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        txtRemark = new javax.swing.JTextArea();
+        btnSubmit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(545, 700));
@@ -140,14 +160,19 @@ Border noborder = BorderFactory.createLineBorder(Color.RED, 0);
         jLabel11.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jLabel11.setText("Remark");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtRemark.setColumns(20);
+        txtRemark.setRows(5);
+        jScrollPane1.setViewportView(txtRemark);
 
-        jButton1.setBackground(new java.awt.Color(255, 0, 0));
-        jButton1.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Submit");
+        btnSubmit.setBackground(new java.awt.Color(255, 0, 0));
+        btnSubmit.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        btnSubmit.setForeground(new java.awt.Color(255, 255, 255));
+        btnSubmit.setText("Submit");
+        btnSubmit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSubmitMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -187,7 +212,7 @@ Border noborder = BorderFactory.createLineBorder(Color.RED, 0);
                     .addComponent(jLabel2)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(185, 185, 185)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -214,7 +239,7 @@ Border noborder = BorderFactory.createLineBorder(Color.RED, 0);
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(btnSubmit)
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
@@ -258,8 +283,24 @@ Border noborder = BorderFactory.createLineBorder(Color.RED, 0);
 
     private void btnABminusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnABminusMouseClicked
         // TODO add your handling code here:
-  setBorder(btnABplus);
+  setBorder(btnABminus);
     }//GEN-LAST:event_btnABminusMouseClicked
+
+    private void btnSubmitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubmitMouseClicked
+        // TODO add your handling code here:
+Map<String,Object> obj = new HashMap<>();
+obj.put("requestEmail", usr.getEmail());
+obj.put("requestBloodType", bloodType);
+obj.put("remark",txtRemark.getText());
+   try {
+              api.AddBloodRequest(obj);
+                HomePage t = new HomePage(usr);
+                 t.setVisible(true); 
+                dispose();
+            } catch (IOException ex) {
+                Logger.getLogger(DonateBlood.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }//GEN-LAST:event_btnSubmitMouseClicked
     
     /**
      * @param args the command line arguments
@@ -290,8 +331,12 @@ Border noborder = BorderFactory.createLineBorder(Color.RED, 0);
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new BloodRequest().setVisible(true);
+            public void run() {            
+                try {
+                    new BloodRequest().setVisible(true);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
@@ -305,11 +350,11 @@ Border noborder = BorderFactory.createLineBorder(Color.RED, 0);
     private javax.swing.JLabel btnBplus;
     private javax.swing.JLabel btnOminus;
     private javax.swing.JLabel btnOplus;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnSubmit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea txtRemark;
     // End of variables declaration//GEN-END:variables
 }
