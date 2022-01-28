@@ -27,15 +27,17 @@ public class DonateOrderInbox extends javax.swing.JFrame {
     public DonateOrderInbox() throws IOException {
         initComponents();
     }
+
     public DonateOrderInbox(User user) throws IOException {
         initComponents();
         loadData(user);
     }
-    private void loadData(User user) throws IOException{
-    this.usr = user;
-       lbFullName.setText(user.getName());
-      List<Inbox> inbx = api.getInbox(user.getEmail());
-        
+
+    private void loadData(User user) throws IOException {
+        this.usr = user;
+        lbFullName.setText(user.getName());
+        List<Inbox> inbx = api.getInbox(user.getEmail());
+
         for (int i = 0; i < inbx.size(); i++) {
             switch (i) {
                 case 0:
@@ -152,36 +154,36 @@ public class DonateOrderInbox extends javax.swing.JFrame {
         javax.swing.GroupLayout pnInbox0Layout = new javax.swing.GroupLayout(pnInbox0);
         pnInbox0.setLayout(pnInbox0Layout);
         pnInbox0Layout.setHorizontalGroup(
-            pnInbox0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnInbox0Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnInbox0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnInbox0Layout.createSequentialGroup()
-                        .addComponent(lbBody0)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbSeeDetail0))
-                    .addGroup(pnInbox0Layout.createSequentialGroup()
-                        .addGroup(pnInbox0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbHeader0)
-                            .addComponent(lbDate0))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 379, Short.MAX_VALUE)
-                        .addComponent(lbBlood0)))
-                .addGap(30, 30, 30))
+                pnInbox0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnInbox0Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(pnInbox0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(pnInbox0Layout.createSequentialGroup()
+                                                .addComponent(lbBody0)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(lbSeeDetail0))
+                                        .addGroup(pnInbox0Layout.createSequentialGroup()
+                                                .addGroup(pnInbox0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(lbHeader0)
+                                                        .addComponent(lbDate0))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 379, Short.MAX_VALUE)
+                                                .addComponent(lbBlood0)))
+                                .addGap(30, 30, 30))
         );
         pnInbox0Layout.setVerticalGroup(
-            pnInbox0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnInbox0Layout.createSequentialGroup()
-                .addGroup(pnInbox0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnInbox0Layout.createSequentialGroup()
-                        .addComponent(lbHeader0)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbDate0))
-                    .addComponent(lbBlood0))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnInbox0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbBody0)
-                    .addComponent(lbSeeDetail0))
-                .addGap(0, 2, Short.MAX_VALUE))
+                pnInbox0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnInbox0Layout.createSequentialGroup()
+                                .addGroup(pnInbox0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(pnInbox0Layout.createSequentialGroup()
+                                                .addComponent(lbHeader0)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(lbDate0))
+                                        .addComponent(lbBlood0))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pnInbox0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(lbBody0)
+                                        .addComponent(lbSeeDetail0))
+                                .addGap(0, 2, Short.MAX_VALUE))
         );
 
         pnInbox1.setBackground(new java.awt.Color(204, 204, 204));
@@ -207,36 +209,36 @@ public class DonateOrderInbox extends javax.swing.JFrame {
         javax.swing.GroupLayout pnInbox1Layout = new javax.swing.GroupLayout(pnInbox1);
         pnInbox1.setLayout(pnInbox1Layout);
         pnInbox1Layout.setHorizontalGroup(
-            pnInbox1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnInbox1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnInbox1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnInbox1Layout.createSequentialGroup()
-                        .addComponent(lbBody1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbSeeDetail1))
-                    .addGroup(pnInbox1Layout.createSequentialGroup()
-                        .addGroup(pnInbox1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbHeader1)
-                            .addComponent(lbDate1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 379, Short.MAX_VALUE)
-                        .addComponent(lbBlood1)))
-                .addGap(30, 30, 30))
+                pnInbox1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnInbox1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(pnInbox1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(pnInbox1Layout.createSequentialGroup()
+                                                .addComponent(lbBody1)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(lbSeeDetail1))
+                                        .addGroup(pnInbox1Layout.createSequentialGroup()
+                                                .addGroup(pnInbox1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(lbHeader1)
+                                                        .addComponent(lbDate1))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 379, Short.MAX_VALUE)
+                                                .addComponent(lbBlood1)))
+                                .addGap(30, 30, 30))
         );
         pnInbox1Layout.setVerticalGroup(
-            pnInbox1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnInbox1Layout.createSequentialGroup()
-                .addGroup(pnInbox1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnInbox1Layout.createSequentialGroup()
-                        .addComponent(lbHeader1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbDate1))
-                    .addComponent(lbBlood1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnInbox1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbBody1)
-                    .addComponent(lbSeeDetail1))
-                .addGap(0, 10, Short.MAX_VALUE))
+                pnInbox1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnInbox1Layout.createSequentialGroup()
+                                .addGroup(pnInbox1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(pnInbox1Layout.createSequentialGroup()
+                                                .addComponent(lbHeader1)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(lbDate1))
+                                        .addComponent(lbBlood1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pnInbox1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(lbBody1)
+                                        .addComponent(lbSeeDetail1))
+                                .addGap(0, 10, Short.MAX_VALUE))
         );
 
         pnInbox2.setBackground(new java.awt.Color(204, 204, 204));
@@ -262,36 +264,36 @@ public class DonateOrderInbox extends javax.swing.JFrame {
         javax.swing.GroupLayout pnInbox2Layout = new javax.swing.GroupLayout(pnInbox2);
         pnInbox2.setLayout(pnInbox2Layout);
         pnInbox2Layout.setHorizontalGroup(
-            pnInbox2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnInbox2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnInbox2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnInbox2Layout.createSequentialGroup()
-                        .addComponent(lbBody2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbSeeDetail2))
-                    .addGroup(pnInbox2Layout.createSequentialGroup()
-                        .addGroup(pnInbox2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbHeader2)
-                            .addComponent(lbDate2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 379, Short.MAX_VALUE)
-                        .addComponent(lbBlood2)))
-                .addGap(30, 30, 30))
+                pnInbox2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnInbox2Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(pnInbox2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(pnInbox2Layout.createSequentialGroup()
+                                                .addComponent(lbBody2)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(lbSeeDetail2))
+                                        .addGroup(pnInbox2Layout.createSequentialGroup()
+                                                .addGroup(pnInbox2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(lbHeader2)
+                                                        .addComponent(lbDate2))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 379, Short.MAX_VALUE)
+                                                .addComponent(lbBlood2)))
+                                .addGap(30, 30, 30))
         );
         pnInbox2Layout.setVerticalGroup(
-            pnInbox2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnInbox2Layout.createSequentialGroup()
-                .addGroup(pnInbox2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnInbox2Layout.createSequentialGroup()
-                        .addComponent(lbHeader2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbDate2))
-                    .addComponent(lbBlood2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnInbox2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbBody2)
-                    .addComponent(lbSeeDetail2))
-                .addGap(0, 7, Short.MAX_VALUE))
+                pnInbox2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnInbox2Layout.createSequentialGroup()
+                                .addGroup(pnInbox2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(pnInbox2Layout.createSequentialGroup()
+                                                .addComponent(lbHeader2)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(lbDate2))
+                                        .addComponent(lbBlood2))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pnInbox2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(lbBody2)
+                                        .addComponent(lbSeeDetail2))
+                                .addGap(0, 7, Short.MAX_VALUE))
         );
 
         pnInbox3.setBackground(new java.awt.Color(204, 204, 204));
@@ -317,83 +319,83 @@ public class DonateOrderInbox extends javax.swing.JFrame {
         javax.swing.GroupLayout pnInbox3Layout = new javax.swing.GroupLayout(pnInbox3);
         pnInbox3.setLayout(pnInbox3Layout);
         pnInbox3Layout.setHorizontalGroup(
-            pnInbox3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnInbox3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnInbox3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnInbox3Layout.createSequentialGroup()
-                        .addComponent(lbBody3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbSeeDetail3))
-                    .addGroup(pnInbox3Layout.createSequentialGroup()
-                        .addGroup(pnInbox3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbHeader3)
-                            .addComponent(lbDate3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 379, Short.MAX_VALUE)
-                        .addComponent(lbBlood3)))
-                .addGap(30, 30, 30))
+                pnInbox3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnInbox3Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(pnInbox3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(pnInbox3Layout.createSequentialGroup()
+                                                .addComponent(lbBody3)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(lbSeeDetail3))
+                                        .addGroup(pnInbox3Layout.createSequentialGroup()
+                                                .addGroup(pnInbox3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(lbHeader3)
+                                                        .addComponent(lbDate3))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 379, Short.MAX_VALUE)
+                                                .addComponent(lbBlood3)))
+                                .addGap(30, 30, 30))
         );
         pnInbox3Layout.setVerticalGroup(
-            pnInbox3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnInbox3Layout.createSequentialGroup()
-                .addGroup(pnInbox3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnInbox3Layout.createSequentialGroup()
-                        .addComponent(lbHeader3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbDate3))
-                    .addComponent(lbBlood3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnInbox3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbBody3)
-                    .addComponent(lbSeeDetail3))
-                .addGap(0, 8, Short.MAX_VALUE))
+                pnInbox3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnInbox3Layout.createSequentialGroup()
+                                .addGroup(pnInbox3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(pnInbox3Layout.createSequentialGroup()
+                                                .addComponent(lbHeader3)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(lbDate3))
+                                        .addComponent(lbBlood3))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pnInbox3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(lbBody3)
+                                        .addComponent(lbSeeDetail3))
+                                .addGap(0, 8, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbBack)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbFullName)
-                            .addComponent(lbJoin))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbLogo))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(pnInbox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(pnInbox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(pnInbox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(pnInbox0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(33, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(lbBack)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(lbFullName)
+                                                        .addComponent(lbJoin))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(lbLogo))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(pnInbox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(pnInbox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(pnInbox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(pnInbox0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbLogo)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lbBack)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbFullName)
-                                .addGap(1, 1, 1)
-                                .addComponent(lbJoin)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                .addComponent(pnInbox0, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(pnInbox2, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(pnInbox1, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(pnInbox3, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
-                .addGap(98, 98, 98))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lbLogo)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(7, 7, 7)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(lbBack)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(lbFullName)
+                                                                .addGap(1, 1, 1)
+                                                                .addComponent(lbJoin)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                                .addComponent(pnInbox0, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(pnInbox2, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(pnInbox1, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(pnInbox3, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+                                .addGap(98, 98, 98))
         );
 
         pack();
@@ -409,7 +411,7 @@ public class DonateOrderInbox extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(DonateOrderInbox.class.getName()).log(Level.SEVERE, null, ex);
         }
-     
+
     }//GEN-LAST:event_lbBackMouseClicked
 
     /**

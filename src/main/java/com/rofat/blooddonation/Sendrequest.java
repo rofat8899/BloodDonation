@@ -6,13 +6,13 @@ package com.rofat.blooddonation;
 
 import com.rofat.blooddonation.Class.Api;
 import dto.User;
+
 import java.awt.Color;
 import java.io.IOException;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
 
 /**
- *
  * @author rofat
  */
 public class Sendrequest extends javax.swing.JFrame {
@@ -20,20 +20,33 @@ public class Sendrequest extends javax.swing.JFrame {
     /**
      * Creates new form BloodRequest
      */
- Api api = new Api();
+    Api api = new Api();
     User usr = new User();
-Border border = BorderFactory.createLineBorder(Color.RED, 2);
-Border noborder = BorderFactory.createLineBorder(Color.RED, 0);
-String bloodType;
+
+    String bloodType;
+
     public Sendrequest() throws IOException {
         initComponents();
-usr = api.getUser("rofat@gmail.com");
+        usr = api.getUser("rofat@gmail.com");
     }
- public Sendrequest(User user) {
+
+    public Sendrequest(User user,User donor,String availability) {
         initComponents();
-usr=user;
+        usr = user;
+        loadData(donor,availability);
     }
-  
+
+    private void loadData(User donor,String availability){
+        txtAge.setText(donor.getAge());
+        txtAddress.setText(donor.getAddress().toString());
+        txtAvailability.setText(availability);
+        txtBloodType.setText(donor.getBloodType());
+        txtContact.setText(donor.getContact().getPhoneNumber());
+        txtEmail.setText(donor.getEmail());
+        txtGender.setText(donor.getGender());
+    }
+
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,15 +60,15 @@ usr=user;
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        lbGender = new javax.swing.JLabel();
+        txtGender = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        lbBloodType = new javax.swing.JLabel();
-        lbAge = new javax.swing.JLabel();
+        txtBloodType = new javax.swing.JLabel();
+        txtAge = new javax.swing.JLabel();
         txtContact = new javax.swing.JLabel();
         txtEmail = new javax.swing.JLabel();
         txtAddress = new javax.swing.JLabel();
@@ -79,9 +92,9 @@ usr=user;
         jLabel4.setText("Email:");
         jLabel4.setToolTipText("");
 
-        lbGender.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        lbGender.setText("Male");
-        lbGender.setToolTipText("");
+        txtGender.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        txtGender.setText("Male");
+        txtGender.setToolTipText("");
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel6.setText("Age:");
@@ -108,13 +121,13 @@ usr=user;
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Request");
 
-        lbBloodType.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        lbBloodType.setText("A+");
-        lbBloodType.setToolTipText("");
+        txtBloodType.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        txtBloodType.setText("A+");
+        txtBloodType.setToolTipText("");
 
-        lbAge.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        lbAge.setText("27");
-        lbAge.setToolTipText("");
+        txtAge.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        txtAge.setText("27");
+        txtAge.setToolTipText("");
 
         txtContact.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         txtContact.setText("012345678");
@@ -170,15 +183,15 @@ usr=user;
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbAge))
+                        .addComponent(txtAge))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbBloodType))
+                        .addComponent(txtBloodType))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbGender)))
+                        .addComponent(txtGender)))
                 .addGap(84, 84, 84))
         );
         layout.setVerticalGroup(
@@ -191,15 +204,15 @@ usr=user;
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(lbBloodType))
+                    .addComponent(txtBloodType))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbGender)
+                    .addComponent(txtGender)
                     .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(lbAge))
+                    .addComponent(txtAge))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -223,7 +236,7 @@ usr=user;
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     /**
      * @param args the command line arguments
      */
@@ -231,7 +244,7 @@ usr=user;
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -260,7 +273,7 @@ usr=user;
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {            
+            public void run() {
                 try {
                     new Sendrequest().setVisible(true);
                 } catch (IOException e) {
@@ -281,12 +294,12 @@ usr=user;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel lbAge;
-    private javax.swing.JLabel lbBloodType;
-    private javax.swing.JLabel lbGender;
     private javax.swing.JLabel txtAddress;
+    private javax.swing.JLabel txtAge;
     private javax.swing.JLabel txtAvailability;
+    private javax.swing.JLabel txtBloodType;
     private javax.swing.JLabel txtContact;
     private javax.swing.JLabel txtEmail;
+    private javax.swing.JLabel txtGender;
     // End of variables declaration//GEN-END:variables
 }

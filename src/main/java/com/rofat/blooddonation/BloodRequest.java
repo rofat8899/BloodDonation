@@ -6,6 +6,7 @@ package com.rofat.blooddonation;
 
 import com.rofat.blooddonation.Class.Api;
 import dto.User;
+
 import java.awt.Color;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,7 +20,6 @@ import javax.swing.JLabel;
 import javax.swing.border.Border;
 
 /**
- *
  * @author rofat
  */
 public class BloodRequest extends javax.swing.JFrame {
@@ -27,46 +27,47 @@ public class BloodRequest extends javax.swing.JFrame {
     /**
      * Creates new form BloodRequest
      */
- Api api = new Api();
+    Api api = new Api();
     User usr = new User();
-Border border = BorderFactory.createLineBorder(Color.RED, 2);
-Border noborder = BorderFactory.createLineBorder(Color.RED, 0);
-String bloodType;
+    Border border = BorderFactory.createLineBorder(Color.RED, 2);
+    Border noborder = BorderFactory.createLineBorder(Color.RED, 0);
+    String bloodType;
+
     public BloodRequest() throws IOException {
         initComponents();
-usr = api.getUser("rofat@gmail.com");
+        usr = api.getUser("rofat@gmail.com");
     }
- public BloodRequest(User user) {
+
+    public BloodRequest(User user) {
         initComponents();
-usr=user;
+        usr = user;
     }
-    private void setBorder(JLabel jlb){
-    String bloodTypes[] = {"AB-","AB+","A+","A-","B+","B-","O+","O-"};
-     List<JLabel> lb = new ArrayList<>();
-     lb.add(btnABminus);
-     lb.add(btnABplus);
-     lb.add(btnAplus);
-     lb.add(btnAminus);
-     lb.add(btnBplus);
-     lb.add(btnBminus);
-     lb.add(btnOplus);
-     lb.add(btnOminus);
-     for(String eachType:bloodTypes){
-         for(JLabel eachlb:lb)
-    {
-      if(eachlb==jlb)
-        {
-          jlb.setBorder(border);
-          bloodType=eachType;
+
+    private void setBorder(JLabel jlb) {
+        String bloodTypes[] = {"AB-", "AB+", "A+", "A-", "B+", "B-", "O+", "O-"};
+        List<JLabel> lb = new ArrayList<>();
+        lb.add(btnABminus);
+        lb.add(btnABplus);
+        lb.add(btnAplus);
+        lb.add(btnAminus);
+        lb.add(btnBplus);
+        lb.add(btnBminus);
+        lb.add(btnOplus);
+        lb.add(btnOminus);
+        for (String eachType : bloodTypes) {
+            for (JLabel eachlb : lb) {
+                if (eachlb == jlb) {
+                    jlb.setBorder(border);
+                    bloodType = eachType;
+                } else {
+                    eachlb.setBorder(noborder);
+                }
+            }
         }
-      else{
-    eachlb.setBorder(noborder);
+
+
     }
-    }
-    }
-    
-     
-}
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -177,70 +178,70 @@ usr=user;
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(btnAplus))
-                                    .addComponent(btnOplus, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnOminus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnAminus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel11)
+                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addComponent(jLabel1)
+                                                                        .addGroup(layout.createSequentialGroup()
+                                                                                .addGap(10, 10, 10)
+                                                                                .addComponent(btnAplus))
+                                                                        .addComponent(btnOplus, javax.swing.GroupLayout.Alignment.TRAILING))
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                        .addComponent(btnOminus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                        .addComponent(btnAminus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addComponent(btnBplus)
+                                                                        .addComponent(btnABplus))
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addComponent(btnBminus, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                        .addComponent(btnABminus, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                                .addGap(37, 37, 37))))
+                        .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnBplus)
-                                    .addComponent(btnABplus))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnBminus, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnABminus, javax.swing.GroupLayout.Alignment.TRAILING))))
-                        .addGap(37, 37, 37))))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(185, 185, 185)
-                        .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                                        .addComponent(jLabel2)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(185, 185, 185)
+                                                .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAplus))
-                    .addComponent(btnBminus)
-                    .addComponent(btnBplus)
-                    .addComponent(btnAminus))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnOplus, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnOminus, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnABplus, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnABminus, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSubmit)
-                .addContainerGap(36, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel1)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnAplus))
+                                        .addComponent(btnBminus)
+                                        .addComponent(btnBplus)
+                                        .addComponent(btnAminus))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btnOplus, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(btnOminus, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(btnABplus, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(btnABminus, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnSubmit)
+                                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         pack();
@@ -248,60 +249,60 @@ usr=user;
 
     private void btnAplusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAplusMouseClicked
         // TODO add your handling code here:
-         setBorder(btnAplus);
+        setBorder(btnAplus);
     }//GEN-LAST:event_btnAplusMouseClicked
 
     private void btnAminusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAminusMouseClicked
         // TODO add your handling code here:
-  setBorder(btnAminus);
+        setBorder(btnAminus);
     }//GEN-LAST:event_btnAminusMouseClicked
 
     private void btnBplusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBplusMouseClicked
         // TODO add your handling code here:
-  setBorder(btnBplus);
+        setBorder(btnBplus);
     }//GEN-LAST:event_btnBplusMouseClicked
 
     private void btnBminusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBminusMouseClicked
         // TODO add your handling code here:
-  setBorder(btnBminus);
+        setBorder(btnBminus);
     }//GEN-LAST:event_btnBminusMouseClicked
 
     private void btnOplusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOplusMouseClicked
         // TODO add your handling code here:
-  setBorder(btnOplus);
+        setBorder(btnOplus);
     }//GEN-LAST:event_btnOplusMouseClicked
 
     private void btnOminusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOminusMouseClicked
         // TODO add your handling code here:
-  setBorder(btnOminus);
+        setBorder(btnOminus);
     }//GEN-LAST:event_btnOminusMouseClicked
 
     private void btnABplusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnABplusMouseClicked
         // TODO add your handling code here:
-  setBorder(btnABplus);
+        setBorder(btnABplus);
     }//GEN-LAST:event_btnABplusMouseClicked
 
     private void btnABminusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnABminusMouseClicked
         // TODO add your handling code here:
-  setBorder(btnABminus);
+        setBorder(btnABminus);
     }//GEN-LAST:event_btnABminusMouseClicked
 
     private void btnSubmitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubmitMouseClicked
         // TODO add your handling code here:
-Map<String,Object> obj = new HashMap<>();
-obj.put("requestEmail", usr.getEmail());
-obj.put("requestBloodType", bloodType);
-obj.put("remark",txtRemark.getText());
-   try {
-              api.AddBloodRequest(obj);
-                HomePage t = new HomePage(usr);
-                 t.setVisible(true); 
-                dispose();
-            } catch (IOException ex) {
-                Logger.getLogger(DonateBlood.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        Map<String, Object> obj = new HashMap<>();
+        obj.put("requestEmail", usr.getEmail());
+        obj.put("requestBloodType", bloodType);
+        obj.put("remark", txtRemark.getText());
+        try {
+            api.AddBloodRequest(obj);
+            HomePage t = new HomePage(usr);
+            t.setVisible(true);
+            dispose();
+        } catch (IOException ex) {
+            Logger.getLogger(DonateBlood.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnSubmitMouseClicked
-    
+
     /**
      * @param args the command line arguments
      */
@@ -309,7 +310,7 @@ obj.put("remark",txtRemark.getText());
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -331,7 +332,7 @@ obj.put("remark",txtRemark.getText());
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {            
+            public void run() {
                 try {
                     new BloodRequest().setVisible(true);
                 } catch (IOException e) {

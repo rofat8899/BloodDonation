@@ -7,6 +7,7 @@ package com.rofat.blooddonation.Class;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.rofat.blooddonation.Login;
+import dto.BloodDonation;
 import dto.BloodRequest;
 import dto.Inbox;
 import dto.User;
@@ -214,5 +215,23 @@ public Object AddBloodRequest(Map<String, Object> obj) throws IOException {
             return rm;
         }
         return "";
+    }
+public List<BloodDonation> getAllDonorPending() throws IOException {
+        DefaultHttpClient httpClient = new DefaultHttpClient();
+        HttpGet Request = new HttpGet(
+                "http://localhost:8080/blood/donation/pending");
+
+        HttpResponse response1 = httpClient.execute(Request);
+        BufferedReader br1 = new BufferedReader(
+                new InputStreamReader((response1.getEntity().getContent())));
+        String output1;
+        while ((output1 = br1.readLine()) != null) {
+            Gson g = new Gson();
+            Type Type = new TypeToken<ArrayList<Inbox>>() {
+            }.getType();
+            ArrayList<BloodDonation> result = g.fromJson(output1, Type);
+            return result;
+        }
+        return null;
     }
 }
