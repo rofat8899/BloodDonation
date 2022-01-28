@@ -188,4 +188,31 @@ public class Api {
         }
         return "";
     }
+public Object AddBloodRequest(Map<String, Object> obj) throws IOException {
+        DefaultHttpClient httpClient = new DefaultHttpClient();
+        HttpPost postRequest = new HttpPost(
+                "http://localhost:8080/user/request");
+
+        StringEntity input = new StringEntity("{\n" + "\"requestEmail\":\"" + obj.get("requestEmail") +
+        "\",\"requestBloodType\":\"" + obj.get("requestBloodType") +
+        "\",\"remark\":\"" + obj.get("remark")
+        + "\"}");
+
+        input.setContentType("application/json");
+        postRequest.setEntity(input);
+        HttpResponse response1 = httpClient.execute(postRequest);
+        BufferedReader br1 = new BufferedReader(
+                new InputStreamReader((response1.getEntity().getContent())));
+
+        String output1;
+        System.out.println("Output from Server .... \n");
+        while ((output1 = br1.readLine()) != null) {
+
+            Gson g = new Gson();
+            Object rm = g.fromJson(output1, Object.class);
+            System.out.println(rm.toString());
+            return rm;
+        }
+        return "";
+    }
 }
