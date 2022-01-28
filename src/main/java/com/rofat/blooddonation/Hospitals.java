@@ -6,13 +6,11 @@ package com.rofat.blooddonation;
 
 import com.rofat.blooddonation.Class.Api;
 import dto.User;
-import java.awt.Color;
+
 import java.io.IOException;
-import javax.swing.BorderFactory;
-import javax.swing.border.Border;
+import java.util.List;
 
 /**
- *
  * @author rofat
  */
 public class Hospitals extends javax.swing.JFrame {
@@ -20,20 +18,65 @@ public class Hospitals extends javax.swing.JFrame {
     /**
      * Creates new form BloodRequest
      */
- Api api = new Api();
+    Api api = new Api();
     User usr = new User();
-Border border = BorderFactory.createLineBorder(Color.RED, 2);
-Border noborder = BorderFactory.createLineBorder(Color.RED, 0);
-String bloodType;
+    List<User> hospital = api.getAllHospital();
+
     public Hospitals() throws IOException {
         initComponents();
-usr = api.getUser("rofat@gmail.com");
+        usr = api.getUser("rofat@gmail.com");
+        loadData();
     }
- public Hospitals(User user) {
+
+    public Hospitals(User user) throws IOException {
         initComponents();
-usr=user;
+        usr = user;
+        loadData();
     }
-  
+
+    private void loadData() throws IOException {
+
+        for (int i = 0; i < hospital.size(); i++) {
+            switch (i) {
+                case 0:
+                    txtHospitalName1.setText(hospital.get(i).getName());
+                    txtContact1.setText(hospital.get(i).getContact().getPhoneNumber());
+                    txtEmail1.setText(hospital.get(i).getEmail());
+                    txtAddress1.setText(hospital.get(i).getAddress().toString());
+                    pn2.setVisible(false);
+                    pn3.setVisible(false);
+                    pn4.setVisible(false);
+                    break;
+                case 1:
+                    txtHospitalName2.setText(hospital.get(i).getName());
+                    txtContact2.setText(hospital.get(i).getContact().getPhoneNumber());
+                    txtEmail2.setText(hospital.get(i).getEmail());
+                    txtAddress2.setText(hospital.get(i).getAddress().toString());
+                    pn2.setVisible(true);
+                    pn3.setVisible(false);
+                    pn4.setVisible(false);
+
+                    break;
+                case 2:
+                    txtHospitalName3.setText(hospital.get(i).getName());
+                    txtContact3.setText(hospital.get(i).getContact().getPhoneNumber());
+                    txtEmail3.setText(hospital.get(i).getEmail());
+                    txtAddress3.setText(hospital.get(i).getAddress().toString());
+                    pn3.setVisible(true);
+                    pn4.setVisible(false);
+                    break;
+                case 3:
+                    txtHospitalName4.setText(hospital.get(i).getName());
+                    txtContact4.setText(hospital.get(i).getContact().getPhoneNumber());
+                    txtEmail4.setText(hospital.get(i).getEmail());
+                    txtAddress4.setText(hospital.get(i).getAddress().toString());
+                    pn4.setVisible(true);
+                    break;
+
+            }
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -102,27 +145,27 @@ usr=user;
         javax.swing.GroupLayout pn1Layout = new javax.swing.GroupLayout(pn1);
         pn1.setLayout(pn1Layout);
         pn1Layout.setHorizontalGroup(
-            pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtHospitalName1)
-                    .addComponent(txtContact1)
-                    .addComponent(txtEmail1)
-                    .addComponent(txtAddress1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pn1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtHospitalName1)
+                                        .addComponent(txtContact1)
+                                        .addComponent(txtEmail1)
+                                        .addComponent(txtAddress1))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pn1Layout.setVerticalGroup(
-            pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn1Layout.createSequentialGroup()
-                .addComponent(txtHospitalName1)
-                .addGap(2, 2, 2)
-                .addComponent(txtContact1)
-                .addGap(2, 2, 2)
-                .addComponent(txtEmail1)
-                .addGap(2, 2, 2)
-                .addComponent(txtAddress1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pn1Layout.createSequentialGroup()
+                                .addComponent(txtHospitalName1)
+                                .addGap(2, 2, 2)
+                                .addComponent(txtContact1)
+                                .addGap(2, 2, 2)
+                                .addComponent(txtEmail1)
+                                .addGap(2, 2, 2)
+                                .addComponent(txtAddress1)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pn2.setBackground(new java.awt.Color(255, 255, 255));
@@ -142,27 +185,27 @@ usr=user;
         javax.swing.GroupLayout pn2Layout = new javax.swing.GroupLayout(pn2);
         pn2.setLayout(pn2Layout);
         pn2Layout.setHorizontalGroup(
-            pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtHospitalName2)
-                    .addComponent(txtContact2)
-                    .addComponent(txtEmail2)
-                    .addComponent(txtAddress2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pn2Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtHospitalName2)
+                                        .addComponent(txtContact2)
+                                        .addComponent(txtEmail2)
+                                        .addComponent(txtAddress2))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pn2Layout.setVerticalGroup(
-            pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn2Layout.createSequentialGroup()
-                .addComponent(txtHospitalName2)
-                .addGap(2, 2, 2)
-                .addComponent(txtContact2)
-                .addGap(2, 2, 2)
-                .addComponent(txtEmail2)
-                .addGap(2, 2, 2)
-                .addComponent(txtAddress2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pn2Layout.createSequentialGroup()
+                                .addComponent(txtHospitalName2)
+                                .addGap(2, 2, 2)
+                                .addComponent(txtContact2)
+                                .addGap(2, 2, 2)
+                                .addComponent(txtEmail2)
+                                .addGap(2, 2, 2)
+                                .addComponent(txtAddress2)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pn3.setBackground(new java.awt.Color(255, 255, 255));
@@ -182,27 +225,27 @@ usr=user;
         javax.swing.GroupLayout pn3Layout = new javax.swing.GroupLayout(pn3);
         pn3.setLayout(pn3Layout);
         pn3Layout.setHorizontalGroup(
-            pn3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pn3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtHospitalName3)
-                    .addComponent(txtContact3)
-                    .addComponent(txtEmail3)
-                    .addComponent(txtAddress3))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                pn3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pn3Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(pn3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtHospitalName3)
+                                        .addComponent(txtContact3)
+                                        .addComponent(txtEmail3)
+                                        .addComponent(txtAddress3))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pn3Layout.setVerticalGroup(
-            pn3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn3Layout.createSequentialGroup()
-                .addComponent(txtHospitalName3)
-                .addGap(2, 2, 2)
-                .addComponent(txtContact3)
-                .addGap(2, 2, 2)
-                .addComponent(txtEmail3)
-                .addGap(2, 2, 2)
-                .addComponent(txtAddress3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                pn3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pn3Layout.createSequentialGroup()
+                                .addComponent(txtHospitalName3)
+                                .addGap(2, 2, 2)
+                                .addComponent(txtContact3)
+                                .addGap(2, 2, 2)
+                                .addComponent(txtEmail3)
+                                .addGap(2, 2, 2)
+                                .addComponent(txtAddress3)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pn4.setBackground(new java.awt.Color(255, 255, 255));
@@ -222,27 +265,27 @@ usr=user;
         javax.swing.GroupLayout pn4Layout = new javax.swing.GroupLayout(pn4);
         pn4.setLayout(pn4Layout);
         pn4Layout.setHorizontalGroup(
-            pn4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pn4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtHospitalName4)
-                    .addComponent(txtContact4)
-                    .addComponent(txtEmail4)
-                    .addComponent(txtAddress4))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                pn4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pn4Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(pn4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtHospitalName4)
+                                        .addComponent(txtContact4)
+                                        .addComponent(txtEmail4)
+                                        .addComponent(txtAddress4))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pn4Layout.setVerticalGroup(
-            pn4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn4Layout.createSequentialGroup()
-                .addComponent(txtHospitalName4)
-                .addGap(2, 2, 2)
-                .addComponent(txtContact4)
-                .addGap(2, 2, 2)
-                .addComponent(txtEmail4)
-                .addGap(2, 2, 2)
-                .addComponent(txtAddress4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                pn4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pn4Layout.createSequentialGroup()
+                                .addComponent(txtHospitalName4)
+                                .addGap(2, 2, 2)
+                                .addComponent(txtContact4)
+                                .addGap(2, 2, 2)
+                                .addComponent(txtEmail4)
+                                .addGap(2, 2, 2)
+                                .addComponent(txtAddress4)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel2.setIcon(new javax.swing.ImageIcon("D:\\Documents\\NetBeansProjects\\BloodDonation\\image\\hospital-banner.png")); // NOI18N
@@ -250,50 +293,50 @@ usr=user;
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(pn4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pn2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pn3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(206, 206, 206)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(pn4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(pn2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(pn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(pn3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(206, 206, 206)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jLabel1)
+                                                        .addComponent(jLabel2))))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel2)
-                .addGap(6, 6, 6)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSearch)
-                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pn1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(pn2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(pn3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(pn4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(109, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(btnSearch)
+                                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(pn1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(pn2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(pn3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(pn4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(109, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     /**
      * @param args the command line arguments
      */
@@ -301,7 +344,7 @@ usr=user;
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -330,7 +373,7 @@ usr=user;
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {            
+            public void run() {
                 try {
                     new Hospitals().setVisible(true);
                 } catch (IOException e) {

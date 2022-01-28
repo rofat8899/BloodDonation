@@ -137,7 +137,7 @@ public class Api {
         BufferedReader br1 = new BufferedReader(
                 new InputStreamReader((response1.getEntity().getContent())));
         String output1;
-        while (( output1 = br1.readLine()) != null) {
+        while ((output1 = br1.readLine()) != null) {
             Gson g = new Gson();
             Type BloodRequestListType = new TypeToken<ArrayList<BloodRequest>>() {
             }.getType();
@@ -147,10 +147,11 @@ public class Api {
         }
         return null;
     }
+
     public List<Inbox> getInbox(String email) throws IOException {
         DefaultHttpClient httpClient = new DefaultHttpClient();
         HttpGet Request = new HttpGet(
-                "http://localhost:8080/user/inbox/"+email);
+                "http://localhost:8080/user/inbox/" + email);
 
         HttpResponse response1 = httpClient.execute(Request);
         BufferedReader br1 = new BufferedReader(
@@ -165,7 +166,8 @@ public class Api {
         }
         return null;
     }
- public Object AddPendingDonate(Map<String, Object> obj) throws IOException {
+
+    public Object AddPendingDonate(Map<String, Object> obj) throws IOException {
         DefaultHttpClient httpClient = new DefaultHttpClient();
         HttpPost postRequest = new HttpPost(
                 "http://localhost:8080/user/donation");
@@ -189,15 +191,16 @@ public class Api {
         }
         return "";
     }
-public Object AddBloodRequest(Map<String, Object> obj) throws IOException {
+
+    public Object AddBloodRequest(Map<String, Object> obj) throws IOException {
         DefaultHttpClient httpClient = new DefaultHttpClient();
         HttpPost postRequest = new HttpPost(
                 "http://localhost:8080/user/request");
 
         StringEntity input = new StringEntity("{\n" + "\"requestEmail\":\"" + obj.get("requestEmail") +
-        "\",\"requestBloodType\":\"" + obj.get("requestBloodType") +
-        "\",\"remark\":\"" + obj.get("remark")
-        + "\"}");
+                "\",\"requestBloodType\":\"" + obj.get("requestBloodType") +
+                "\",\"remark\":\"" + obj.get("remark")
+                + "\"}");
 
         input.setContentType("application/json");
         postRequest.setEntity(input);
@@ -216,7 +219,8 @@ public Object AddBloodRequest(Map<String, Object> obj) throws IOException {
         }
         return "";
     }
-public List<BloodDonation> getAllDonorPending() throws IOException {
+
+    public List<BloodDonation> getAllDonorPending() throws IOException {
         DefaultHttpClient httpClient = new DefaultHttpClient();
         HttpGet Request = new HttpGet(
                 "http://localhost:8080/blood/donation/pending");
@@ -231,6 +235,24 @@ public List<BloodDonation> getAllDonorPending() throws IOException {
             }.getType();
             ArrayList<BloodDonation> result = g.fromJson(output1, Type);
             return result;
+        }
+        return null;
+    }
+
+    public List<User> getAllHospital() throws IOException {
+        DefaultHttpClient httpClient = new DefaultHttpClient();
+        HttpGet Request = new HttpGet(
+                "http://localhost:8080/user/hospital");
+
+        HttpResponse response1 = httpClient.execute(Request);
+        BufferedReader br1 = new BufferedReader(
+                new InputStreamReader((response1.getEntity().getContent())));
+        String output1;
+        while ((output1 = br1.readLine()) != null) {
+            Gson g = new Gson();
+            Type Type = new TypeToken<ArrayList<Inbox>>() {
+            }.getType();
+            return g.<ArrayList<User>>fromJson(output1, Type);
         }
         return null;
     }

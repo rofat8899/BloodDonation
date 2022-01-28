@@ -6,15 +6,11 @@ package com.rofat.blooddonation;
 
 import com.rofat.blooddonation.Class.Api;
 import dto.BloodDonation;
-import dto.Inbox;
 import dto.User;
 
-import java.awt.Color;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.BorderFactory;
-import javax.swing.border.Border;
 
 /**
  * @author rofat
@@ -27,7 +23,7 @@ public class FindDonor extends javax.swing.JFrame {
     List<User> donor = new ArrayList<>();
     Api api = new Api();
     User usr = new User();
-    List<String> availibility;
+    List<String> availability;
     public FindDonor() throws IOException {
         initComponents();
         usr = api.getUser("rofat@gmail.com");
@@ -45,52 +41,52 @@ public class FindDonor extends javax.swing.JFrame {
         for (int i = 0; i < result.size(); i++) {
             switch (i) {
                 case 0:
-                    donor.set(0, api.getUser(result.get(0).getDonorEmail()));
-                    txtDonorname1.setText(donor.get(0).getName());
-                    txtGenderAge1.setText(donor.get(0).getAge() + ", " + donor.get(0).getAge());
-                    txtAvailability1.setText(result.get(0).getAvailableDate());
-                    availibility.set(0,result.get(0).getAvailableDate());
+                    donor.set(i, api.getUser(result.get(i).getDonorEmail()));
+                    txtDonorname1.setText(donor.get(i).getName());
+                    txtGenderAge1.setText(donor.get(i).getAge() + ", " + donor.get(i).getAge());
+                    txtAvailability1.setText(result.get(i).getAvailableDate());
+                    availability.set(i,result.get(i).getAvailableDate());
                     pn2.setVisible(false);
                     pn3.setVisible(false);
                     pn4.setVisible(false);
                     pn5.setVisible(false);
                     break;
                 case 1:
-                    donor.set(1, api.getUser(result.get(1).getDonorEmail()));
-                    txtDonorname2.setText(donor.get(1).getName());
-                    txtGenderAge2.setText(donor.get(1).getAge() + ", " + donor.get(1).getAge());
-                    txtAvailability2.setText(result.get(1).getAvailableDate());
-                    availibility.set(1,result.get(1).getAvailableDate());
+                    donor.set(i, api.getUser(result.get(i).getDonorEmail()));
+                    txtDonorname2.setText(donor.get(i).getName());
+                    txtGenderAge2.setText(donor.get(i).getAge() + ", " + donor.get(i).getAge());
+                    txtAvailability2.setText(result.get(i).getAvailableDate());
+                    availability.set(i,result.get(i).getAvailableDate());
                     pn2.setVisible(true);
                     pn3.setVisible(false);
                     pn4.setVisible(false);
                     pn5.setVisible(false);
                     break;
                 case 2:
-                    donor.set(2, api.getUser(result.get(2).getDonorEmail()));
-                    txtDonorname3.setText(donor.get(2).getName());
-                    txtGenderAge3.setText(donor.get(2).getAge() + ", " + donor.get(2).getAge());
-                    txtAvailability3.setText(result.get(2).getAvailableDate());
-                    availibility.set(2,result.get(2).getAvailableDate());
+                    donor.set(i, api.getUser(result.get(i).getDonorEmail()));
+                    txtDonorname3.setText(donor.get(i).getName());
+                    txtGenderAge3.setText(donor.get(i).getAge() + ", " + donor.get(i).getAge());
+                    txtAvailability3.setText(result.get(i).getAvailableDate());
+                    availability.set(i,result.get(i).getAvailableDate());
                     pn3.setVisible(true);
                     pn4.setVisible(false);
                     pn5.setVisible(false);
                     break;
                 case 3:
-                    donor.set(3, api.getUser(result.get(3).getDonorEmail()));
-                    txtDonorname4.setText(donor.get(3).getName());
-                    txtGenderAge4.setText(donor.get(3).getAge() + ", " + donor.get(3).getAge());
-                    txtAvailability4.setText(result.get(3).getAvailableDate());
-                    availibility.set(3,result.get(3).getAvailableDate());
+                    donor.set(i, api.getUser(result.get(i).getDonorEmail()));
+                    txtDonorname4.setText(donor.get(i).getName());
+                    txtGenderAge4.setText(donor.get(i).getAge() + ", " + donor.get(i).getAge());
+                    txtAvailability4.setText(result.get(i).getAvailableDate());
+                    availability.set(i,result.get(i).getAvailableDate());
                     pn4.setVisible(true);
                     pn5.setVisible(false);
                     break;
                 case 4:
-                    donor.set(4, api.getUser(result.get(4).getDonorEmail()));
-                    txtDonorname5.setText(donor.get(4).getName());
-                    txtGenderAge5.setText(donor.get(4).getAge() + ", " + donor.get(4).getAge());
-                    txtAvailability5.setText(result.get(4).getAvailableDate());
-                    availibility.set(4,result.get(4).getAvailableDate());
+                    donor.set(i, api.getUser(result.get(i).getDonorEmail()));
+                    txtDonorname5.setText(donor.get(i).getName());
+                    txtGenderAge5.setText(donor.get(i).getAge() + ", " + donor.get(i).getAge());
+                    txtAvailability5.setText(result.get(i).getAvailableDate());
+                    availability.set(i,result.get(i).getAvailableDate());
                     pn5.setVisible(true);
                     break;
 
@@ -385,35 +381,35 @@ public class FindDonor extends javax.swing.JFrame {
 
     private void pn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn1MouseClicked
         // TODO add your handling code here:
-    Sendrequest t = new Sendrequest(usr,donor.get(0),availibility.get(0));
+    Sendrequest t = new Sendrequest(usr,donor.get(0), availability.get(0));
     t.setVisible(true);
     dispose();
     }//GEN-LAST:event_pn1MouseClicked
 
     private void pn2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn2MouseClicked
         // TODO add your handling code here:
-    Sendrequest t = new Sendrequest(usr,donor.get(1),availibility.get(1));
+    Sendrequest t = new Sendrequest(usr,donor.get(1), availability.get(1));
     t.setVisible(true);
     dispose();
     }//GEN-LAST:event_pn2MouseClicked
 
     private void pn3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn3MouseClicked
         // TODO add your handling code here:
-    Sendrequest t = new Sendrequest(usr,donor.get(2),availibility.get(2));
+    Sendrequest t = new Sendrequest(usr,donor.get(2), availability.get(2));
     t.setVisible(true);
     dispose();
     }//GEN-LAST:event_pn3MouseClicked
 
     private void pn4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn4MouseClicked
         // TODO add your handling code here:
-    Sendrequest t = new Sendrequest(usr,donor.get(3),availibility.get(3));
+    Sendrequest t = new Sendrequest(usr,donor.get(3), availability.get(3));
     t.setVisible(true);
     dispose();
     }//GEN-LAST:event_pn4MouseClicked
 
     private void pn5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn5MouseClicked
         // TODO add your handling code here:
-    Sendrequest t = new Sendrequest(usr,donor.get(4),availibility.get(4));
+    Sendrequest t = new Sendrequest(usr,donor.get(4), availability.get(4));
     t.setVisible(true);
     dispose();
     }//GEN-LAST:event_pn5MouseClicked

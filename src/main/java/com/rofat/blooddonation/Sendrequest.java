@@ -7,10 +7,9 @@ package com.rofat.blooddonation;
 import com.rofat.blooddonation.Class.Api;
 import dto.User;
 
-import java.awt.Color;
 import java.io.IOException;
-import javax.swing.BorderFactory;
-import javax.swing.border.Border;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author rofat
@@ -66,7 +65,7 @@ public class Sendrequest extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnRequest = new javax.swing.JButton();
         txtBloodType = new javax.swing.JLabel();
         txtAge = new javax.swing.JLabel();
         txtContact = new javax.swing.JLabel();
@@ -116,10 +115,15 @@ public class Sendrequest extends javax.swing.JFrame {
         jLabel11.setText("Gender:");
         jLabel11.setToolTipText("");
 
-        jButton1.setBackground(new java.awt.Color(255, 0, 0));
-        jButton1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Request");
+        btnRequest.setBackground(new java.awt.Color(255, 0, 0));
+        btnRequest.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnRequest.setForeground(new java.awt.Color(255, 255, 255));
+        btnRequest.setText("Request");
+        btnRequest.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRequestMouseClicked(evt);
+            }
+        });
 
         txtBloodType.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         txtBloodType.setText("A+");
@@ -159,7 +163,7 @@ public class Sendrequest extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(195, 195, 195)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 116, Short.MAX_VALUE)
@@ -230,12 +234,25 @@ public class Sendrequest extends javax.swing.JFrame {
                     .addComponent(jLabel9)
                     .addComponent(txtAvailability))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(btnRequest)
                 .addContainerGap(202, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnRequestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRequestMouseClicked
+        // TODO add your handling code here:
+      HomePage t;
+        try {
+            t = new HomePage(usr);
+            t.setVisible(true);
+            dispose();
+        } catch (IOException ex) {
+            Logger.getLogger(Sendrequest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     
+    }//GEN-LAST:event_btnRequestMouseClicked
 
     /**
      * @param args the command line arguments
@@ -284,7 +301,7 @@ public class Sendrequest extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnRequest;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
