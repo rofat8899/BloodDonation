@@ -23,77 +23,105 @@ public class FindDonor extends javax.swing.JFrame {
     List<User> donor = new ArrayList<>();
     Api api = new Api();
     User usr = new User();
-    List<String> availability;
+    List<String> availability = new ArrayList<>();
+    List<BloodDonation> result = api.getAllDonorPending();
     public FindDonor() throws IOException {
         initComponents();
         usr = api.getUser("rofat@gmail.com");
+ loadData(result);
     }
 
     public FindDonor(User user) throws IOException {
         initComponents();
         usr = user;
-        loadData();
+        loadData(result);
     }
 
-    private void loadData() throws IOException {
-        List<BloodDonation> result = api.getAllDonorPending();
-
+    private void loadData( List<BloodDonation> donors) throws IOException {
+System.out.print("Check");
+      System.out.print(result.size());
         for (int i = 0; i < result.size(); i++) {
+            
+         
             switch (i) {
                 case 0:
-                    donor.set(i, api.getUser(result.get(i).getDonorEmail()));
+                    donor.add(i,api.getUser(donors.get(i).getDonorEmail()));                   
                     txtDonorname1.setText(donor.get(i).getName());
-                    txtGenderAge1.setText(donor.get(i).getAge() + ", " + donor.get(i).getAge());
-                    txtAvailability1.setText(result.get(i).getAvailableDate());
-                    availability.set(i,result.get(i).getAvailableDate());
+                    txtGenderAge1.setText(donor.get(i).getGender()+ ", " + donor.get(i).getAge());
+                    txtAvailability1.setText(donors.get(i).getAvailableDate()); 
+                    availability.add(donors.get(i).getAvailableDate()); 
+                    pn1.setVisible(true);                 
                     pn2.setVisible(false);
                     pn3.setVisible(false);
                     pn4.setVisible(false);
                     pn5.setVisible(false);
                     break;
                 case 1:
-                    donor.set(i, api.getUser(result.get(i).getDonorEmail()));
+                    donor.add(i,api.getUser(donors.get(i).getDonorEmail()));                
                     txtDonorname2.setText(donor.get(i).getName());
-                    txtGenderAge2.setText(donor.get(i).getAge() + ", " + donor.get(i).getAge());
-                    txtAvailability2.setText(result.get(i).getAvailableDate());
-                    availability.set(i,result.get(i).getAvailableDate());
+                    txtGenderAge2.setText(donor.get(i).getGender() + ", " + donor.get(i).getAge());
+                    txtAvailability2.setText(donors.get(i).getAvailableDate());
+                    availability.add(donors.get(i).getAvailableDate());    
                     pn2.setVisible(true);
                     pn3.setVisible(false);
                     pn4.setVisible(false);
                     pn5.setVisible(false);
                     break;
-                case 2:
-                    donor.set(i, api.getUser(result.get(i).getDonorEmail()));
+                case 2:     
+                    donor.add(i,api.getUser(donors.get(i).getDonorEmail()));             
                     txtDonorname3.setText(donor.get(i).getName());
-                    txtGenderAge3.setText(donor.get(i).getAge() + ", " + donor.get(i).getAge());
-                    txtAvailability3.setText(result.get(i).getAvailableDate());
-                    availability.set(i,result.get(i).getAvailableDate());
+                    txtGenderAge3.setText(donor.get(i).getGender()+ ", " + donor.get(i).getAge());
+                    txtAvailability3.setText(donors.get(i).getAvailableDate());
+                    availability.add(donors.get(i).getAvailableDate());    
                     pn3.setVisible(true);
                     pn4.setVisible(false);
                     pn5.setVisible(false);
                     break;
-                case 3:
-                    donor.set(i, api.getUser(result.get(i).getDonorEmail()));
+                case 3:   
+                    donor.add(i,api.getUser(donors.get(i).getDonorEmail()));               
                     txtDonorname4.setText(donor.get(i).getName());
-                    txtGenderAge4.setText(donor.get(i).getAge() + ", " + donor.get(i).getAge());
-                    txtAvailability4.setText(result.get(i).getAvailableDate());
-                    availability.set(i,result.get(i).getAvailableDate());
+                    txtGenderAge4.setText(donor.get(i).getGender()+ ", " + donor.get(i).getAge());
+                    txtAvailability4.setText(donors.get(i).getAvailableDate());
+                    availability.add(donors.get(i).getAvailableDate());    
                     pn4.setVisible(true);
                     pn5.setVisible(false);
                     break;
-                case 4:
-                    donor.set(i, api.getUser(result.get(i).getDonorEmail()));
+                case 4:       
+                    donor.add(i,api.getUser(donors.get(i).getDonorEmail()));           
                     txtDonorname5.setText(donor.get(i).getName());
-                    txtGenderAge5.setText(donor.get(i).getAge() + ", " + donor.get(i).getAge());
-                    txtAvailability5.setText(result.get(i).getAvailableDate());
-                    availability.set(i,result.get(i).getAvailableDate());
+                    txtGenderAge5.setText(donor.get(i).getGender() + ", " + donor.get(i).getAge());
+                    txtAvailability5.setText(donors.get(i).getAvailableDate());
+                    availability.add(donors.get(i).getAvailableDate());    
                     pn5.setVisible(true);
                     break;
+                default: break;
 
             }
         }
-    }
 
+    }
+    private void resetData(){
+    txtDonorname1.setText("");
+                    txtGenderAge1.setText("");
+                    txtAvailability1.setText(""); 
+ txtDonorname2.setText("");
+                    txtGenderAge2.setText("");
+                    txtAvailability2.setText(""); 
+txtDonorname3.setText("");
+                    txtGenderAge3.setText("");
+                    txtAvailability3.setText(""); 
+txtDonorname4.setText("");
+                    txtGenderAge4.setText("");
+                    txtAvailability4.setText(""); 
+txtDonorname5.setText("");
+                    txtGenderAge5.setText("");
+                    txtAvailability5.setText(""); 
+pn1.setVisible(false);
+ pn2.setVisible(false);
+                    pn3.setVisible(false);
+                    pn4.setVisible(false);
+                    pn5.setVisible(false);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -138,12 +166,17 @@ public class FindDonor extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 0, 0));
         jLabel1.setText("Find Donor");
 
-        cbBloodType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Blood Type", "A-", "A+", "B-", "B+", "AB-", "AB+", "O-", "O+" }));
+        cbBloodType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Blood-Type", "A-", "A+", "B-", "B+", "AB-", "AB+", "O-", "O+" }));
 
         btnSearch.setBackground(new java.awt.Color(255, 0, 0));
         btnSearch.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         btnSearch.setForeground(new java.awt.Color(255, 255, 255));
         btnSearch.setText("Search");
+        btnSearch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSearchMouseClicked(evt);
+            }
+        });
 
         pn1.setBackground(new java.awt.Color(255, 255, 255));
         pn1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -169,7 +202,7 @@ public class FindDonor extends javax.swing.JFrame {
                     .addComponent(txtDonorname1)
                     .addComponent(txtGenderAge1)
                     .addComponent(txtAvailability1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(418, Short.MAX_VALUE))
         );
         pn1Layout.setVerticalGroup(
             pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,7 +238,7 @@ public class FindDonor extends javax.swing.JFrame {
                     .addComponent(txtDonorname2)
                     .addComponent(txtGenderAge2)
                     .addComponent(txtAvailability2))
-                .addContainerGap(416, Short.MAX_VALUE))
+                .addContainerGap(418, Short.MAX_VALUE))
         );
         pn2Layout.setVerticalGroup(
             pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -241,7 +274,7 @@ public class FindDonor extends javax.swing.JFrame {
                     .addComponent(txtDonorname3)
                     .addComponent(txtGenderAge3)
                     .addComponent(txtAvailability3))
-                .addContainerGap(416, Short.MAX_VALUE))
+                .addContainerGap(418, Short.MAX_VALUE))
         );
         pn3Layout.setVerticalGroup(
             pn3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -277,7 +310,7 @@ public class FindDonor extends javax.swing.JFrame {
                     .addComponent(txtDonorname4)
                     .addComponent(txtGenderAge4)
                     .addComponent(txtAvailability4))
-                .addContainerGap(416, Short.MAX_VALUE))
+                .addContainerGap(418, Short.MAX_VALUE))
         );
         pn4Layout.setVerticalGroup(
             pn4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -313,7 +346,7 @@ public class FindDonor extends javax.swing.JFrame {
                     .addComponent(txtDonorname5)
                     .addComponent(txtGenderAge5)
                     .addComponent(txtAvailability5))
-                .addContainerGap(416, Short.MAX_VALUE))
+                .addContainerGap(418, Short.MAX_VALUE))
         );
         pn5Layout.setVerticalGroup(
             pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -413,6 +446,22 @@ public class FindDonor extends javax.swing.JFrame {
     t.setVisible(true);
     dispose();
     }//GEN-LAST:event_pn5MouseClicked
+
+    private void btnSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseClicked
+        // TODO add your handling code here:
+         resetData();
+
+try{
+if(cbBloodType.getSelectedItem().toString().contains("Blood-Type")){
+ loadData(result);
+}
+else{
+ loadData(api.getAllDonorPendingByBloodType(cbBloodType.getSelectedItem().toString()));       
+}
+}  
+catch(Exception e)
+{}     
+    }//GEN-LAST:event_btnSearchMouseClicked
 
     /**
      * @param args the command line arguments

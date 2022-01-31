@@ -52,12 +52,12 @@ public class Api {
                 new InputStreamReader((response1.getEntity().getContent())));
 
         String output1;
-        System.out.println("Output from Server .... \n");
+       
         while ((output1 = br1.readLine()) != null) {
 
             Gson g = new Gson();
             ResponseMessage rm = g.fromJson(output1, ResponseMessage.class);
-            System.out.println(rm.getMessage());
+           
             return rm.getMessage();
         }
         return "";
@@ -98,12 +98,12 @@ public class Api {
                 new InputStreamReader((response1.getEntity().getContent())));
 
         String output1;
-        System.out.println("Output from Server .... \n");
+   
         while ((output1 = br1.readLine()) != null) {
 
             Gson g = new Gson();
             Object rm = g.fromJson(output1, Object.class);
-            System.out.println(rm.toString());
+          
             return rm;
         }
         return "";
@@ -119,7 +119,7 @@ public class Api {
                 new InputStreamReader((response1.getEntity().getContent())));
 
         String output1;
-        System.out.println("Output from Server .... \n");
+     
         while ((output1 = br1.readLine()) != null) {
 
             Gson g = new Gson();
@@ -142,7 +142,7 @@ public class Api {
             Type BloodRequestListType = new TypeToken<ArrayList<BloodRequest>>() {
             }.getType();
             ArrayList<BloodRequest> bloodReq = g.fromJson(output1, BloodRequestListType);
-            //System.out.println(bloodReq.toString());
+         
             return bloodReq;
         }
         return null;
@@ -181,12 +181,12 @@ public class Api {
                 new InputStreamReader((response1.getEntity().getContent())));
 
         String output1;
-        System.out.println("Output from Server .... \n");
+ 
         while ((output1 = br1.readLine()) != null) {
 
             Gson g = new Gson();
             Object rm = g.fromJson(output1, Object.class);
-            System.out.println(rm.toString());
+           
             return rm;
         }
         return "";
@@ -209,12 +209,12 @@ public class Api {
                 new InputStreamReader((response1.getEntity().getContent())));
 
         String output1;
-        System.out.println("Output from Server .... \n");
+      
         while ((output1 = br1.readLine()) != null) {
 
             Gson g = new Gson();
             Object rm = g.fromJson(output1, Object.class);
-            System.out.println(rm.toString());
+          
             return rm;
         }
         return "";
@@ -231,7 +231,26 @@ public class Api {
         String output1;
         while ((output1 = br1.readLine()) != null) {
             Gson g = new Gson();
-            Type Type = new TypeToken<ArrayList<Inbox>>() {
+            Type Type = new TypeToken<ArrayList<BloodDonation>>() {
+            }.getType();
+            ArrayList<BloodDonation> result = g.fromJson(output1, Type);
+            return result;
+        }
+        return null;
+    }
+    
+    public List<BloodDonation> getAllDonorPendingByBloodType(String bloodType) throws IOException {
+        DefaultHttpClient httpClient = new DefaultHttpClient();
+        HttpGet Request = new HttpGet(
+                "http://localhost:8080/blood/donation/pending/" + bloodType + "");
+
+        HttpResponse response1 = httpClient.execute(Request);
+        BufferedReader br1 = new BufferedReader(
+                new InputStreamReader((response1.getEntity().getContent())));
+        String output1;
+        while ((output1 = br1.readLine()) != null) {
+            Gson g = new Gson();
+            Type Type = new TypeToken<ArrayList<BloodDonation>>() {
             }.getType();
             ArrayList<BloodDonation> result = g.fromJson(output1, Type);
             return result;

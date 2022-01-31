@@ -65,4 +65,16 @@ public class BloodDonation {
     public void setRemark(String remark) {
         this.remark = remark;
     }
+
+    @Override
+    public String toString() {
+        return "BloodDonation{" +
+                "donatedDate=" + donatedDate +
+                ", donorEmail='" + donorEmail + '\'' +
+                ", donatedAt='" + donatedAt + '\'' +
+                ", availableDate='" + availableDate + '\'' +
+                ", status='" + status + '\'' +
+                ", remark='" + remark + '\'' +
+                '}';
+    }
 }
